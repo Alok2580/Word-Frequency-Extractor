@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Your Words Frequency</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- <style>
+    body {
+      font-family: Arial, sans-serif; -->
+     <!-- margin: 20px; -->
+    <!-- }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style> -->
+</head>
+<body>
+  <h1>Word Frequency Extractor</h1>
+  <label for="urlInput">Enter URL:</label>
+  <input type="text" id="urlInput" placeholder="Enter URL here" style="width: 300px;">
+  <label for="nInput">Top N Words:</label>
+  <input type="number" id="nInput" value="10" min="1" style="width: 80px;">
+  <button onclick="fetchWordFrequency()">Submit</button>
+
+  <h2>Top N Words</h2>
+  <table id="resultTable" style="width: 300px;">
+    <thead>
+      <tr>
+        <th>Word</th>
+        <th>Frequency</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    async function fetchWordFrequency() {
+      const url = document.getElementById('urlInput').value;
+      const n = document.getElementById('nInput').value;
+
+      if (!url) {
+        alert('Please enter a URL');
+        return;
+      }
+
+      try {
+        const response = await fetch('http://localhost:5000/api/fetch-words', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ url, n: parseInt(n) }),
+        });
+
+        const data = await response.json();
+        const topWords = data.topWords;
+
+        const tableBody = document.querySelector('#resultTable tbody');
+        tableBody.innerHTML = ''; // Clear previous results
+
+        topWords.forEach(([word, frequency]) => {
+          const row = document.createElement('tr');
+          const wordCell = document.createElement('td');
+          wordCell.textContent = word;
+          const freqCell = document.createElement('td');
+          freqCell.textContent = frequency;
+          row.appendChild(wordCell);
+          row.appendChild(freqCell);
+          tableBody.appendChild(row);
+        });
+      } catch (error) {
+        alert('Error fetching data');
+      }
+    }
+  </script>
+</body>
+</html>
