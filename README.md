@@ -32,8 +32,7 @@ This tool can be useful for SEO analysis, content analysis, or simply extracting
    Clone the repository to your local machine using the following command:
    ```bash
    git clone https://github.com/Alok2580/Word-Frequency-Extractor.git
-   
-
+   ```
    Navigate into the project directory:
    ```bash
    cd Word-Frequency-Extractor
@@ -104,4 +103,3 @@ Feel free to fork the repository, make improvements, or report bugs. Contributio
 
 ## License
 This project is licensed under the MIT License.
-```
