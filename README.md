@@ -65,7 +65,7 @@ This tool can be useful for SEO analysis, content analysis, or simply extracting
 5. The table will display the top `n` most frequent words and their corresponding frequencies.
 
 ### Example Use Case
-- **URL**: `https://en.wikipedia.org/wiki/Web_scraping`
+- **URL**: `https://www.expertrec.com/`
 - **Top Words**: `10`
 - Click **Get Word Frequency**, and the page will show the top 10 words with their frequencies from the Wikipedia page.
 
