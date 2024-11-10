@@ -67,7 +67,7 @@ This tool can be useful for SEO analysis, content analysis, or simply extracting
 ### Example Use Case
 - **URL**: `https://www.expertrec.com/`
 - **Top Words**: `10`
-- Click **Get Word Frequency**, and the page will show the top 10 words with their frequencies from the Wikipedia page.
+- Click **Get Word Frequency**, and the page will show the top 10 words with their frequencies from the Expertrec page.
 
 ## API Endpoints
 
